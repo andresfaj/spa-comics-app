@@ -2,7 +2,7 @@
 <hr>
 
 <div class="card-columns">
-    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes">
+    <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
         <!-- Primera forma de usar la interpolation -->
         <!-- <img src="{{ heroe.img }}" class="card-img-top" alt="..."> -->
         <!-- Segunda forma de usar la interpolation -->
@@ -12,7 +12,12 @@
             <p class="card-text">{{heroe.bio}}</p>
             <p class="card-text"><small class="text-muted">{{heroe.aparicion}}</small></p>
 
-            <button type="button" class="btn btn-outline-primary btn-block">See more</button>
+            <button (click)="seeHeroe(i)" type="button" class="btn btn-outline-primary btn-block">
+                See more
+            </button>
+            <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary btn-block">
+                See more    
+            </a> -->
         </div>
     </div>
 </div>
